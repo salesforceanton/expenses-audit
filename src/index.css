@@ -1,5 +1,44 @@
+:root {
+    --brand-color-dark: #001730;
+    --brand-color-black: #3E3E3C;
+    --brand-color-gray: #706E6B;
+    --brand-color-blue: #005fb2;
+    --brand-color-green: #2A9D8F;
+    --brand-color-cyan: #ABED5C;
+    --brand-color-teal: #4AD7D1;
+    --brand-color-red: #FE4A49;
+    --brand-color-orange: #CC5500;
+    --brand-color-yellow: #E9C46A;
+    --brand-color-white: #FFF;
+
+    --gradient-neutral-10: #324A66;
+    --gradient-neutral-20: #536980;
+    --gradient-neutral-30: #6E8094;
+    --gradient-neutral-40: #8D9DAD;
+    --gradient-neutral-50: #B5C2D1;
+    --gradient-neutral-60: #CCD0D0;
+    --gradient-neutral-70: #E9EAEC;
+    --gradient-neutral-80: #FFFFFF;
+
+    --gradient-red-40: #F77A89;
+    --gradient-red-70: #FFCDD2;
+
+    --gradient-cyan-60: #CEF3A2;
+    --gradient-cyan-70: #C8E6C9;
+
+    --gradient-yellow-50: #F5F090;
+    --gradient-yellow-70: #FBF6B9;
+
+    --gradient-blue-10: #192E5F;
+    --gradient-blue-20:#0070D299;
+    --gradient-blue-30: #005FB2;
+    --gradient-blue-40: #0C8EFF;
+    --gradient-blue-50: #54698D;
+
+    --border-neutral-medium: 2px solid #CCD0D0;
+}
+
 body {
-    margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
         'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
         sans-serif;
@@ -7,6 +46,3 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
-}

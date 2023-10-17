@@ -1,0 +1,22 @@
+.date-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: var(--brand-color-blue);
+    border-radius: 10px;
+}
+
+.date-container > * {
+    margin: 0.25rem;
+}
+
+.date-container .day {
+    margin-top: 0.25;
+    margin-bottom: 0.5rem;
+}
+
+.date-container .month {
+    margin-top: 0.5rem;
+    font-weight: 700;
+}
