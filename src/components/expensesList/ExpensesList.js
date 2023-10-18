@@ -1,9 +1,10 @@
 import './ExpensesList.css';
 import CostItem from "../costItem/CostItem";
+import Card from '../card/Card';
 
-function ExpensesList(props) {
+const ExpensesList = (props) => {
     return (
-        <div className='expenses-list'>
+        <Card className='expenses-list'>
             {props.data.map((e) => 
                 <CostItem 
                     key={e.title}
@@ -12,7 +13,7 @@ function ExpensesList(props) {
                     amount={e.amount}
                 />
             )}
-        </div>
+        </Card>
     );
 }
 
