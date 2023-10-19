@@ -35,6 +35,7 @@
     --gradient-blue-40: #0C8EFF;
     --gradient-blue-50: #54698D;
 
+    --border-neutral-thin: 1px solid #CCD0D0;
     --border-neutral-medium: 2px solid #CCD0D0;
 }
 

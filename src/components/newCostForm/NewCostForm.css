@@ -1,0 +1,62 @@
+label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+input, button {
+    box-sizing: border-box;
+    height: 2rem;
+    width: 15rem;
+    border-radius: 5px;
+    border: var(--border-neutral-thin);
+    font-family: inherit;
+}
+
+input:active {
+    border: var(--border-neutral-thin);
+}
+
+button {
+    width: 15rem;
+    height: 2rem;
+    cursor: pointer;
+    margin-bottom: 0.25rem;
+}
+
+.form-wrapper {
+    width: 20rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--gradient-neutral-70);
+}
+
+form > * {
+    margin: 0.5rem;
+    color: var(--brand-color-black);
+}
+
+.card-header {
+    width: 20rem;
+    text-align: center;
+    background-color: var(--brand-color-blue);
+    color: var(--brand-color-white);
+}
+
+.submit-button {
+    background-color: var(--brand-color-blue);
+    color: var(--brand-color-white);
+}
+
+.cancel-button {
+    background-color: var(--brand-color-white);
+}
+
+.buttons-block {
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
