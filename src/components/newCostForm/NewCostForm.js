@@ -32,10 +32,12 @@ const NewCostForm = (props) => {
 
         props.onAddCost(costData);
         clearForm();
+        props.onCancel();
     }
     const cancelHandler = (e) => {
         e.preventDefault();
         clearForm();
+        props.onCancel();
     }
 
     return (

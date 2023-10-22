@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 
 import ExpensesList from "./components/expensesList/ExpensesList";
 import NewCostForm from "./components/newCostForm/NewCostForm";
+import Modal from './components/modal/Modal';
+import AppHeader from './components/appHeader/AppHeader';
 
 function App() {
     const initialCostData = [
@@ -23,13 +25,18 @@ function App() {
     ];
 
     const [costData, setCostData] = useState(initialCostData);
+    const [showNewCostModal, setShowNewCostModal] = useState(false);
 
     const addCostHandler = (input) => setCostData((prevState) => [input, ...prevState]);
-    
+    const openNewCostModalHandler = () => setShowNewCostModal(true);
+    const closeNewCostModalHandler = () => setShowNewCostModal(false);
+
     return (
         <div>
-            <h2>Expenses Audit</h2>
-            <NewCostForm onAddCost={addCostHandler}/>
+           <AppHeader openNewCostModalHandler={openNewCostModalHandler}/>
+            <Modal show={showNewCostModal} onBackdropClick={closeNewCostModalHandler}>
+                <NewCostForm onAddCost={addCostHandler} onCancel={closeNewCostModalHandler}/>
+            </Modal>
             <ExpensesList data={costData}/>
         </div>
         

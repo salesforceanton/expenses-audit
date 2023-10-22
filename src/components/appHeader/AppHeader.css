@@ -1,0 +1,13 @@
+.app-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0.5rem;
+}
+
+.open-modal-button {
+    width: 8rem;
+    height: 2rem;
+    cursor: pointer;
+    background-color: var(--brand-color-white);
+}
