@@ -1,6 +1,18 @@
-.expenses-list {
+:root {
     overflow-x: hidden;
     background-color: var(--gradient-neutral-70);
+}
+
+.picker-container {
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0.5rem;
+}
+
+.picker-container > h4 {
+    margin-right: 0.5rem;
 }
 
 .expenses-list > * {

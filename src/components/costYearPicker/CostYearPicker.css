@@ -1,0 +1,8 @@
+select {
+    box-sizing: border-box;
+    height: 2rem;
+    width: 5rem;
+    border-radius: 5px;
+    border: var(--border-neutral-thin);
+    font-family: inherit;
+}
