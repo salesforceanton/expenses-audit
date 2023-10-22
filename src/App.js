@@ -1,8 +1,10 @@
+import React, {useState} from 'react';
+
 import ExpensesList from "./components/expensesList/ExpensesList";
 import NewCostForm from "./components/newCostForm/NewCostForm";
 
 function App() {
-    const costs = [
+    const initialCostData = [
         {
             date: new Date(),
             title: 'X-Box Series-S',
@@ -18,12 +20,17 @@ function App() {
             title: 'Car repair work',
             amount: 278.50
         }
-    ]
+    ];
+
+    const [costData, setCostData] = useState(initialCostData);
+
+    const addCostHandler = (input) => setCostData((prevState) => [input, ...prevState]);
+    
     return (
         <div>
             <h2>Expenses Audit</h2>
-            <NewCostForm/>
-            <ExpensesList data={costs}/>
+            <NewCostForm onAddCost={addCostHandler}/>
+            <ExpensesList data={costData}/>
         </div>
         
     )

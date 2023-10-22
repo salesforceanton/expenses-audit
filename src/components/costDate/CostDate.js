@@ -1,7 +1,7 @@
 import './CostDate.css'
 
 const CostDate = (props) => {
-    const date = props.date;
+    const date = new Date(props.date);
 
     const month = date.toLocaleString('en-us', { month: 'long' });
     const year = date.getFullYear();
