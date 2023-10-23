@@ -34,5 +34,12 @@
 
 .expenses-list > * {
     margin: 0.5rem;
-    width: 60%;
+    width: 40rem;
+}
+
+@media (min-width: 1024px) {
+    .expenses-list > * {
+        margin: 0.5rem;
+        width: 60%;
+    }
 }
