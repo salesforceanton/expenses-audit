@@ -4,6 +4,7 @@ import CostItem from "../costItem/CostItem";
 import CostYearPicker from '../costYearPicker/CostYearPicker';
 import Card from '../card/Card';
 import './ExpensesList.css';
+import ExpensesDiagram from '../expensesDiagram/ExpensesDiagram';
 
 const ExpensesList = (props) => {
     const options = [...new Set(props.data.map((e) => new Date(e.date).getFullYear()))]
@@ -13,6 +14,7 @@ const ExpensesList = (props) => {
         }));
 
     const [selectedYear, setSelectedYear] = useState(options[0].value);
+    const filteredData = props.data.filter((e) =>  new Date(e.date).getFullYear() === selectedYear);
 
     const changeYearHandler = (value) => {
         setSelectedYear(+value);
@@ -27,17 +29,18 @@ const ExpensesList = (props) => {
                     onChange={changeYearHandler}
                 />
             </div>
+            <div className='diagram-wrapper'>
+                <ExpensesDiagram data={filteredData}/>
+            </div>
             <div className='expenses-list'>
-                {props.data
-                    .filter((e) =>  new Date(e.date).getFullYear() === selectedYear)
-                    .map((e) => 
-                        <CostItem 
-                            key={e.title}
-                            date={e.date}
-                            title={e.title}
-                            amount={e.amount}
-                        />
-                    )}
+                {filteredData.map((e) => 
+                    <CostItem 
+                        key={e.title}
+                        date={e.date}
+                        title={e.title}
+                        amount={e.amount}
+                    />
+                )}
             </div>
         </Card>
     );

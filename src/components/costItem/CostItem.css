@@ -3,7 +3,7 @@
     grid-template-columns: 8rem auto;
     grid-template-rows: 8rem;
     height: 8rem;
-    background-color: var(--gradient-neutral-80);
+    background-color: var(--gradient-neutral-80) !important;
     color: var(--brand-color-white);
     opacity: 0.9;
 }

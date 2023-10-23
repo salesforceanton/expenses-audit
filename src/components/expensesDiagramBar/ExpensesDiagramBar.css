@@ -1,0 +1,16 @@
+.diagram-bar_wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 0.5rem 0 0.5rem;
+}
+
+.diagram-bar_wrapper > div {
+    width: 2rem;
+    background-color: var(--brand-color-blue);
+    transition: all 0.3s ease-out;
+}
+
+.diagram-bar_wrapper > p {
+    font-weight: 500;
+}

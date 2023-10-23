@@ -11,27 +11,28 @@
     padding: 0.5rem;
 }
 
+.diagram-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.5rem;
+}
+
 .picker-container > h4 {
     margin-right: 0.5rem;
 }
 
+.expenses-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    overflow-y: scroll;
+    max-height: 30rem;
+}
+
 .expenses-list > * {
     margin: 0.5rem;
-    animation-duration: 2s;
-    animation-name: slidein;
-    animation-timing-function: ease-out;
-}
- 
-@keyframes slidein {
-    from {
-        opacity: 0;
-        margin-left: 100%;
-        width: 300%;
-    }
-  
-    to {
-        opacity: 0.9;
-        margin-left: 0%;
-        width: 100%;
-    }
+    width: 60%;
 }

@@ -1,0 +1,6 @@
+.diagram-content_wrapper {
+    display: flex;
+    align-items: flex-end;
+    border: var(--border-neutral-thin);
+    background-color: var(--brand-color-white);
+}
