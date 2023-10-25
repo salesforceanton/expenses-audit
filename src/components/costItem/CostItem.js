@@ -1,6 +1,6 @@
 import './CostItem.css';
 import CostDate from '../costDate/CostDate';
-import Card from '../card/Card';
+import Card from '../common/card/Card';
 
 const CostItem = (props) => {
     const date = props.date

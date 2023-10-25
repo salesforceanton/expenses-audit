@@ -19,7 +19,7 @@ const ExpensesDiagram = (props) => {
 
     const preparedData = props.data.reduce((res, item) => {
         const costMonth = new Date(item.date).getMonth();
-        res[costMonth].total = res[costMonth].total + item.amount;
+        res[costMonth].total = +res[costMonth].total + item.amount;
         return res;
     }, initialData);
 

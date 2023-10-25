@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 
 import CostItem from "../costItem/CostItem";
 import CostYearPicker from '../costYearPicker/CostYearPicker';
-import Card from '../card/Card';
+import Card from '../common/card/Card';
 import './ExpensesList.css';
 import ExpensesDiagram from '../expensesDiagram/ExpensesDiagram';
 

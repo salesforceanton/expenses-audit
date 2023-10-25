@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import Card from '../card/Card'
+import Card from '../common/card/Card'
 import './NewCostForm.css';
 
 const NewCostForm = (props) => {
@@ -26,7 +26,7 @@ const NewCostForm = (props) => {
 
         const costData = {
             title,
-            amount,
+            amount: +amount,
             date
         }
 

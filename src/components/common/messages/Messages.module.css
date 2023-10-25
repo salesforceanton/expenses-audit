@@ -1,0 +1,36 @@
+.message-wrapper {
+    height: auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 1rem 1.25rem;
+}
+
+.message-wrapper > * {
+    margin-right: 1rem;
+}
+
+.theme_info {
+    background-color: var(--gradient-blue-70);
+    color: var(--brand-color-blue);
+    border-left: 6px solid var(--brand-color-blue);
+}
+
+.theme_success {
+    background-color: var(--gradient-cyan-80);
+    color: var(--brand-color-green);
+    border-left: 6px solid var(--brand-color-green);
+}
+
+.theme_warning {
+    background-color: var(--gradient-yellow-70);
+    color: var(--brand-color-orange);
+    border-left: 6px solid var(--brand-color-orange);
+}
+
+.theme_error {
+    background-color: var(--gradient-red-70);
+    color: var(--brand-color-red);
+    border-left: 6px solid var(--brand-color-red);
+}

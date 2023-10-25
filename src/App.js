@@ -1,9 +1,12 @@
 import React, {useState} from 'react';
 
+import './App.css';
+
 import ExpensesList from "./components/expensesList/ExpensesList";
 import NewCostForm from "./components/newCostForm/NewCostForm";
-import Modal from './components/modal/Modal';
+import Modal from './components/common/modal/Modal';
 import AppHeader from './components/appHeader/AppHeader';
+import Messages from './components/common/messages/Messages';
 
 function App() {
     const initialCostData = [
@@ -33,17 +36,31 @@ function App() {
             amount: 300.60
         }
     ];
+    const addCostSuccessMessage = 'Cost has been added successfully';
 
     const [costData, setCostData] = useState(initialCostData);
     const [showNewCostModal, setShowNewCostModal] = useState(false);
+    const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
-    const addCostHandler = (input) => setCostData((prevState) => [input, ...prevState]);
+    const addCostHandler = (input) => {
+        setCostData((prevState) => [input, ...prevState]);
+        setShowSuccessMessage(true)
+        window.setTimeout(() => {
+            setShowSuccessMessage(false)
+        }, 3000)
+    };
     const openNewCostModalHandler = () => setShowNewCostModal(true);
     const closeNewCostModalHandler = () => setShowNewCostModal(false);
 
     return (
         <div>
-           <AppHeader openNewCostModalHandler={openNewCostModalHandler}/>
+            <Messages 
+                show={showSuccessMessage}
+                variant='success' 
+                message={addCostSuccessMessage} 
+                className='successToast'
+            />
+            <AppHeader openNewCostModalHandler={openNewCostModalHandler} showNewButton/>
             <Modal show={showNewCostModal} onBackdropClick={closeNewCostModalHandler}>
                 <NewCostForm onAddCost={addCostHandler} onCancel={closeNewCostModalHandler}/>
             </Modal>
@@ -51,7 +68,6 @@ function App() {
         </div>
         
     )
-    
 }
 
 export default App;
