@@ -30,7 +30,7 @@ const Messages = (props) => {
     const theme = styles[`theme_${props.variant}`];
     return (
         <div className={`${theme} ${styles['message-wrapper']} ${props.className}`}>
-            <FontAwesomeIcon icon={getIcon()} />
+            <FontAwesomeIcon icon={getIcon()} className={styles['message-icon']}/>
             <p>{props.message}</p>
         </div>
     );

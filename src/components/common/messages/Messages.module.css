@@ -4,11 +4,17 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding: 1rem 1.25rem;
+    padding: 1rem;
+}
+
+.message-icon {
+    width: 2rem;
+    height: 2rem;
 }
 
 .message-wrapper > * {
     margin-right: 1rem;
+    margin-left: 1rem;
 }
 
 .theme_info {
