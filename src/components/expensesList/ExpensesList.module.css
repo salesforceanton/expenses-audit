@@ -1,0 +1,69 @@
+.card-wrapper {
+    width: 75vw;
+}
+
+.picker-container {
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0.5rem;
+}
+
+.diagram-wrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 0.5rem;
+}
+
+.picker-container > h4 {
+    margin-right: 0.5rem;
+}
+
+.expenses-list__container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 70vh;
+}
+
+.expenses-list {
+    display: inline-block;
+    width: 100%;
+    overflow-y: auto;
+    min-height: 40vh;
+}
+
+.expenses-list > * {
+    margin: 0.5rem;
+    text-align: center;
+}
+
+.empty-message__icon {
+    width: 3rem;
+    height: 3rem;
+}
+
+.empty-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.empty-message p {
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+@media (max-width: 1550px) {
+    .expenses-list__container {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: auto auto;
+    }
+
+    .expenses-list {
+        max-height: 50vh;
+    }
+}

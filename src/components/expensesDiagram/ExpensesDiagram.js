@@ -1,5 +1,5 @@
 import ExpensesDiagramBar from '../expensesDiagramBar/ExpensesDiagramBar';
-import './ExpensesDiagram.css';
+import styles from './ExpensesDiagram.module.css';
 
 const ExpensesDiagram = (props) => {
     const initialData = [
@@ -26,7 +26,7 @@ const ExpensesDiagram = (props) => {
     const maxValue = Math.max(...preparedData.map((e) => e.total));
 
     return (
-        <div className='diagram-content_wrapper'>
+        <div className={styles['diagram-content_wrapper']}>
             {preparedData.map((item) => 
                 <ExpensesDiagramBar 
                     item={item} 

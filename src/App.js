@@ -9,36 +9,9 @@ import AppHeader from './components/appHeader/AppHeader';
 import Messages from './components/common/messages/Messages';
 
 function App() {
-    const initialCostData = [
-        {
-            date: new Date(2023, 2, 11),
-            title: 'X-Box Series-S',
-            amount: 425.50
-        },
-        {
-            date: new Date(2023, 5, 15),
-            title: 'Jagerrmasster',
-            amount: 19.99
-        },
-        {
-            date: new Date(2023, 6, 14),
-            title: 'Cordiant Tunga Nordway x4',
-            amount: 200
-        },
-        {
-            date: new Date(2023, 10, 6),
-            title: 'Car repair work',
-            amount: 278.50
-        },
-        {
-            date: new Date(2023, 10, 10),
-            title: 'Xiomi vacuum mop ultra 10',
-            amount: 300.60
-        }
-    ];
     const addCostSuccessMessage = 'Cost has been added successfully';
 
-    const [costData, setCostData] = useState(initialCostData);
+    const [costData, setCostData] = useState([]);
     const [showNewCostModal, setShowNewCostModal] = useState(false);
     const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 

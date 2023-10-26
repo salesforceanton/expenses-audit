@@ -14,9 +14,3 @@
 .diagram-bar_wrapper > p {
     font-weight: 500;
 }
-
-@media (min-width: 1270px) {
-    .diagram-bar_wrapper > div {
-        width: 4rem;
-    }
-}

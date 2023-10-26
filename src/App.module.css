@@ -21,9 +21,3 @@
     justify-content: center;
     width: 100%;
 }
-
-@media (min-width: 1024px) {
-    .expenses-list__container > * {
-        width: 75%;
-    }
-}

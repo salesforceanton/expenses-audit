@@ -20,10 +20,10 @@ input:active {
 button {
     height: 2.5rem;
     cursor: pointer;
-    margin-bottom: 0.25rem;
 }
 
 .form-wrapper {
+    width: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -41,6 +41,7 @@ form > * {
 .submit-button {
     background-color: var(--brand-color-blue);
     color: var(--brand-color-white);
+    margin-bottom: 0.25rem;
 }
 
 .cancel-button {

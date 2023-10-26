@@ -1,22 +1,24 @@
 import React, { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee } from '@fortawesome/free-solid-svg-icons' 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
 import styles from './RegistrationForm.module.css';
 import Card from '../../common/card/Card';
 import PasswordInput from '../../common/passwordInput/PasswordInput';
 
 const RegistrationForm = (props) => {
+    const passwordRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
 
     const reportFormValidity = () => {
-        const passwordRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
         const errorMessage = 
-            username === '' ? 'User Name should be populated' :
-            email === '' ? 'Email should be populated' :
-            !passwordRegex.test(password) ? 'Password is incorrect' : null
+            !username.trim().length       ? 'User Name should be populated'      :
+            !emailRegex.test(email)       ? 'Please enter correct Email address' :
+            !passwordRegex.test(password) ? 'Password is incorrect'              : null
 
         if (errorMessage) {
             props.onFormError(errorMessage);
@@ -33,7 +35,7 @@ const RegistrationForm = (props) => {
             return;
         }
         const userData = { username, password, email };
-        console.log(userData);
+        props.onCreateUser(userData);
     }
     return (
         <Card className={styles['form-wrapper']}>
