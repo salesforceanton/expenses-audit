@@ -6,12 +6,22 @@ import styles from './RegistrationForm.module.css';
 import Card from '../../common/card/Card';
 import PasswordInput from '../../common/passwordInput/PasswordInput';
 
-const RegistrationForm = () => {
+const RegistrationForm = (props) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
 
     const reportFormValidity = () => {
+        const passwordRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+        const errorMessage = 
+            username === '' ? 'User Name should be populated' :
+            email === '' ? 'Email should be populated' :
+            !passwordRegex.test(password) ? 'Password is incorrect' : null
+
+        if (errorMessage) {
+            props.onFormError(errorMessage);
+            return false;
+        }
         return true;
     }
     const changeUsernameHandler = (e) => setUsername(e.target.value);

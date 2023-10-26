@@ -1,0 +1,40 @@
+.error-content__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--gradient-neutral-80);
+    color: var(--brand-color-red);
+    border-radius: 10px;
+}
+
+.cancel-button {
+    background-color: var(--brand-color-red);
+    color: var(--brand-color-white);
+    height: 2.5rem;
+    width: 20rem;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.message-icon {
+    width: 3rem;
+    height: 3rem;
+}
+
+.message-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1.5rem;
+}
+
+.error-action {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 0 !important;
+}
+
+.message-content > p {
+    color: var(--brand-color-black);
+}
