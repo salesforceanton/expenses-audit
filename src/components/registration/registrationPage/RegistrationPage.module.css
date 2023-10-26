@@ -1,0 +1,11 @@
+:root {
+    background-color: var(--gradient-blue-70);
+}
+
+.registration-form__wrapper {
+    position: relative;
+    top: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

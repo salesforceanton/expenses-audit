@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import Card from '../common/card/Card'
-import './NewCostForm.css';
+import styles from './NewCostForm.module.css';
 
 const NewCostForm = (props) => {
     const [title, setTitle] = useState('');
@@ -41,10 +41,10 @@ const NewCostForm = (props) => {
     }
 
     return (
-        <Card className='form-wrapper'>
-            <h2 className='card-header'>New Cost</h2>
+        <Card className={styles['form-wrapper']}>
+            <h2 className={styles['form-header']}>New Cost</h2>
             <form>
-                <div className='form-element'>
+                <div>
                     <label>Title</label>
                     <input 
                         placeholder='Describe your expense...' 
@@ -55,7 +55,7 @@ const NewCostForm = (props) => {
                         required
                     />
                 </div>
-                <div className='form-element'>
+                <div>
                     <label>Amount</label>
                     <input 
                         type='number' 
@@ -66,7 +66,7 @@ const NewCostForm = (props) => {
                         data-id="validation"
                     />
                 </div>
-                <div className='form-element'>
+                <div>
                     <label>Cost Date</label>
                     <input 
                         type='date' 
@@ -76,9 +76,9 @@ const NewCostForm = (props) => {
                         data-id="validation"
                     />
                 </div>
-                <div className='buttons-block'>
-                    <button className='submit-button' onClick={submitHandler}>Confirm</button>
-                    <button className='cancel-button' onClick={cancelHandler}>Cancel</button>
+                <div className={styles['buttons-block']}>
+                    <button className={styles['submit-button']} onClick={submitHandler}>Confirm</button>
+                    <button className={styles['cancel-button']} onClick={cancelHandler}>Cancel</button>
                 </div>
             </form>
         </Card>

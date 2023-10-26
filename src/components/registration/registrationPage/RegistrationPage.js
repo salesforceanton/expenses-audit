@@ -1,10 +1,13 @@
-//import styles from './RegistrationPage.module.css';
-
-import AppHeader from "../../appHeader/AppHeader";
+import RegistrationForm from '../registrationForm/RegistrationForm';
+import styles from './RegistrationPage.module.css';
 
 const RegistrationPage = () => {
     return (
-        <AppHeader/>
+        <div className={styles['page-wrapper']}>
+            <div className={styles['registration-form__wrapper']}>
+                <RegistrationForm/>
+            </div>
+        </div>
     );
 }
 

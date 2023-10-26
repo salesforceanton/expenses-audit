@@ -7,7 +7,7 @@ label {
 input, button {
     box-sizing: border-box;
     height: 2rem;
-    width: 15rem;
+    width: 20rem;
     border-radius: 5px;
     border: var(--border-neutral-thin);
     font-family: inherit;
@@ -18,30 +18,24 @@ input:active {
 }
 
 button {
-    width: 15rem;
-    height: 2rem;
+    height: 2.5rem;
     cursor: pointer;
     margin-bottom: 0.25rem;
 }
 
 .form-wrapper {
-    width: 20rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: var(--gradient-neutral-70);
+    background-color: var(--gradient-neutral-80);
 }
 
 form > * {
-    margin: 0.5rem;
-    color: var(--brand-color-black);
+    margin: 1.5rem;
 }
 
-.card-header {
-    width: 20rem;
+.form-header {
     text-align: center;
-    background-color: var(--brand-color-blue);
-    color: var(--brand-color-white);
 }
 
 .submit-button {
@@ -59,13 +53,4 @@ form > * {
     align-items: center;
     flex-direction: column;
     justify-content: center;
-}
-
-@media (min-width: 768px) {
-    .form-wrapper, .card-header {
-        width: 27.5rem;
-    }
-    input, button {
-        width: 20rem;
-    }
 }

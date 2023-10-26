@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-import './App.css';
+import styles from './App.module.css';
 
 import ExpensesList from "./components/expensesList/ExpensesList";
 import NewCostForm from "./components/newCostForm/NewCostForm";
@@ -53,18 +53,20 @@ function App() {
     const closeNewCostModalHandler = () => setShowNewCostModal(false);
 
     return (
-        <div>
+        <div className={styles['page-wrapper']}>
             <Messages 
                 show={showSuccessMessage}
                 variant='success' 
                 message={addCostSuccessMessage} 
-                className='successToast'
+                className={styles['success-toast']}
             />
             <AppHeader openNewCostModalHandler={openNewCostModalHandler} showNewButton/>
             <Modal show={showNewCostModal} onBackdropClick={closeNewCostModalHandler}>
                 <NewCostForm onAddCost={addCostHandler} onCancel={closeNewCostModalHandler}/>
             </Modal>
-            <ExpensesList data={costData}/>
+            <div className={styles['expenses-list__container']}>
+                <ExpensesList data={costData}/>
+            </div>
         </div>
         
     )
