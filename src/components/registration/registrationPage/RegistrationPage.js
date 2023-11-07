@@ -19,14 +19,14 @@ const RegistrationPage = () => {
         setErrorMessage(message);
         setShowFormError(true);
     }
-    const createUserHanler = ({ username }) => {
+    const createUserHandler = ({ username }) => {
         setSuccessMessage(`User ${username} has been created!`);
         setShowSuccessMessage(true);
 
         window.setTimeout(() => {
             setShowSuccessMessage(false);
             setSuccessMessage('');
-            window.location = '/home';
+            window.location = '/';
         }, 3000)
     }
 
@@ -44,7 +44,7 @@ const RegistrationPage = () => {
                 message={errorMessage}
             />
             <div className={styles['registration-form__wrapper']}>
-                <RegistrationForm onFormError={formErrorHandler} onCreateUser={createUserHanler}/>
+                <RegistrationForm onFormError={formErrorHandler} onCreateUser={createUserHandler}/>
             </div>
         </div>
     );
