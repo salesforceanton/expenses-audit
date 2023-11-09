@@ -1,0 +1,34 @@
+label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+label span {
+    color: var(--brand-color-red);
+}
+
+input {
+    box-sizing: border-box;
+    height: 2rem;
+    width: 100%;
+    border-radius: 5px;
+    border: var(--border-neutral-thin);
+    font-family: inherit;
+    padding: 0.5rem;
+}
+
+input:focus {
+    outline: none;
+}
+
+.invalid input {
+    color: var(--brand-color-red);
+    border: 2px solid var(--brand-color-red)
+}
+
+.invalid p {
+    margin-top: 0 !important;
+    color: var(--brand-color-red);
+    font-size: 0.75rem;
+}

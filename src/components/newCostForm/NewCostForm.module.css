@@ -1,20 +1,10 @@
-label {
-    display: block;
-    font-weight: 600;
-    margin-bottom: 0.25rem;
-}
-
-input, button {
+button {
     box-sizing: border-box;
     height: 2rem;
     width: 20rem;
     border-radius: 5px;
     border: var(--border-neutral-thin);
     font-family: inherit;
-}
-
-input:active {
-    border: var(--border-neutral-thin);
 }
 
 button {
@@ -42,6 +32,12 @@ form > * {
     background-color: var(--brand-color-blue);
     color: var(--brand-color-white);
     margin-bottom: 0.25rem;
+}
+
+.submit-button:disabled {
+    background-color: var(--gradient-neutral-70);
+    cursor: not-allowed;
+    color: var(--brand-color-blue);
 }
 
 .cancel-button {
