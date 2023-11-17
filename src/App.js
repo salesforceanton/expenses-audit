@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { useHttp, HTTP_METHOD } from './hooks/use-http';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import styles from './App.module.css';
 
@@ -10,42 +10,30 @@ import AppHeader from './components/appHeader/AppHeader';
 import Messages from './components/common/messages/Messages';
 import LoadingSpinner from './components/common/spinner/Spinner';
 
-const addCostSuccessMessage = 'Cost has been added successfully';
-const costsEndpoint = 'https://react-test-http-bae73-default-rtdb.firebaseio.com/costs.json';
+import { 
+    addCostSuccessMessage,
+    mainStateActions,
+    mainStateSelectors
+} from './store/main/public-api';
 
 function App() {
-    const [costData, setCostData] = useState([]);
-    const [showNewCostModal, setShowNewCostModal] = useState(false);
-    const [showSuccessMessage, setShowSuccessMessage] = useState(false);
-
-    const { isLoading, error, httpRequest } = useHttp();
+    const dispatch = useDispatch();
+   
+    const costData = useSelector(mainStateSelectors.selectCostsData);
+    const showSuccessMessage = useSelector(mainStateSelectors.selectShowSuccessMessage);
+    const showNewCostModal = useSelector(mainStateSelectors.selectShowNewCostModal)
+    const isLoading = useSelector(mainStateSelectors.selectIsLoading);
 
     useEffect(() => {
-        const handleGetCostsData = (response) => {
-            const data = Object.keys(response).map((id) => ({...response[id], id }))
-            setCostData(data);
-        };
+        dispatch(mainStateActions.getCosts());
+    }, [dispatch]);
 
-        httpRequest({ endpoint: costsEndpoint }, handleGetCostsData);
-    }, [httpRequest]);
-
-    const handleCreateCostSuccess = (input) => (response) => {
-        setCostData((prevState) => [{ ...input, id: response.name}, ...prevState]);
-        setShowSuccessMessage(true)
-        window.setTimeout(() => {
-            setShowSuccessMessage(false)
-        }, 3000)
-    };
-
-    const createNewCost = (costItem) => {
-        httpRequest({endpoint: costsEndpoint, method: HTTP_METHOD.POST, body: costItem }, handleCreateCostSuccess(costItem))
-    };
 
     const addCostHandler = (input) => {
-        createNewCost(input);
+        dispatch(mainStateActions.addCost(input))
     };
-    const openNewCostModalHandler = () => setShowNewCostModal(true);
-    const closeNewCostModalHandler = () => setShowNewCostModal(false);
+    const openNewCostModalHandler = () => dispatch(mainStateActions.setShowNewCostModal(true));
+    const closeNewCostModalHandler = () => dispatch(mainStateActions.setShowNewCostModal(false));
 
     return (
         <React.Fragment>

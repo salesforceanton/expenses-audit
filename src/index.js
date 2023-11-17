@@ -1,9 +1,12 @@
 import ReactDOM from 'react-dom/client';
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Provider } from 'react-redux';
+
 import './index.css';
 import App from './App';
 import RegistrationPage from './components/registration/registrationPage/RegistrationPage';
+import store from './store/index';
 
 
 const Routing = () => {
@@ -19,6 +22,8 @@ const Routing = () => {
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>
-        <Routing />
+        <Provider store={store}>
+            <Routing />
+        </Provider>
     </React.StrictMode>
 );
