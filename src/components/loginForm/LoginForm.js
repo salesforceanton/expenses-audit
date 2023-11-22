@@ -1,23 +1,20 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
-import styles from './RegistrationForm.module.css';
-import Card from '../../common/card/Card';
-import PasswordInput from '../../common/passwordInput/PasswordInput';
+import styles from './LoginForm.module.css';
+import Card from '../common/card/Card';
+import PasswordInput from '../common/passwordInput/PasswordInput';
 
-const RegistrationForm = (props) => {
+const LoginForm = (props) => {
     const passwordRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
 
     const reportFormValidity = () => {
         const errorMessage = 
-            !username.trim().length       ? 'User Name should be populated'      :
             !emailRegex.test(email)       ? 'Please enter correct Email address' :
             !passwordRegex.test(password) ? 'Password is incorrect'              : null
 
@@ -27,7 +24,7 @@ const RegistrationForm = (props) => {
         }
         return true;
     }
-    const changeUsernameHandler = (e) => setUsername(e.target.value);
+
     const changeEmailHandler = (e) => setEmail(e.target.value);
     const changePasswordHandler = (e) => setPassword(e.target.value);
     const submitHandler = (e) => {
@@ -35,23 +32,15 @@ const RegistrationForm = (props) => {
         if (!reportFormValidity()) {
             return;
         }
-        const userData = { username, password, email };
-        props.onCreateUser(userData);
+        const userData = { password, email };
+        props.onLogin(userData);
     }
     return (
         <Card className={styles['form-wrapper']}>
             <div className='card-header'> 
-                <h2>Create an Account <FontAwesomeIcon icon={faCoffee} /></h2>
+                <h2>Login <FontAwesomeIcon icon={faCoffee} /></h2>
             </div>
             <form>
-                <div>
-                    <label>User Name</label>
-                    <input 
-                        type='text' 
-                        value={username} 
-                        onChange={changeUsernameHandler}
-                    />
-                </div>
                 <div>
                     <label>Email address</label>
                     <input 
@@ -68,14 +57,11 @@ const RegistrationForm = (props) => {
                     />
                 </div>
                 <div className='buttons-block'>
-                    <button className={styles['submit-button']} onClick={submitHandler}>Sign Up with Email</button>
-                </div>
-                <div className='login-link'>
-                    Or You already have and<Link to='/sign-in'>Account</Link>
+                    <button className={styles['submit-button']} onClick={submitHandler}>Sign In with Email</button>
                 </div>
             </form>
         </Card>
     )
 }
 
-export default RegistrationForm;
+export default LoginForm;

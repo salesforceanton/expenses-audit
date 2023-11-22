@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
-import RegistrationForm from '../../components/registration/registrationForm/RegistrationForm';
-import RegistrationFormError from '../../components/common/formError/FormError';
-import styles from './RegistrationPage.module.css';
+import styles from './LoginPage.module.css';
 import Messages from '../../components/common/messages/Messages';
+import FormError from '../../components/common/formError/FormError';
+import LoginForm from '../../components/loginForm/LoginForm';
 
 const RegistrationPage = () => {
     const [showFormError, setShowFormError] = useState(false);
@@ -19,7 +19,7 @@ const RegistrationPage = () => {
         setErrorMessage(message);
         setShowFormError(true);
     }
-    const createUserHandler = ({ username }) => {
+    const loginHandler = ({ username }) => {
         setSuccessMessage(`User ${username} has been created!`);
         setShowSuccessMessage(true);
 
@@ -38,13 +38,13 @@ const RegistrationPage = () => {
                 message={successMessage} 
                 className={styles['success-toast']}
             />
-            <RegistrationFormError 
+            <FormError 
                 onClose={closeErrorHandler} 
                 show={showFormError}
                 message={errorMessage}
             />
-            <div className={styles['registration-form__wrapper']}>
-                <RegistrationForm onFormError={formErrorHandler} onCreateUser={createUserHandler}/>
+            <div className={styles['login-form__wrapper']}>
+                <LoginForm onFormError={formErrorHandler} onLogin={loginHandler}/>
             </div>
         </div>
     );

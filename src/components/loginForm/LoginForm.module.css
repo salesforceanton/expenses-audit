@@ -1,0 +1,33 @@
+.form-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--gradient-neutral-80);
+}
+
+form > * {
+    margin: 1.5rem;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+input, button {
+    box-sizing: border-box;
+    height: 2rem;
+    width: 20rem;
+    border-radius: 5px;
+    border: var(--border-neutral-thin);
+    font-family: inherit;
+}
+
+.submit-button {
+    background-color: var(--brand-color-blue);
+    color: var(--brand-color-white);
+    height: 2.5rem !important;
+    margin-top: 2rem;
+}

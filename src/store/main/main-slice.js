@@ -2,8 +2,6 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     costsData: [],
-    error: null,
-    isLoading: false,
     showSuccessMessage: false,
     showNewCostModal: false
 }

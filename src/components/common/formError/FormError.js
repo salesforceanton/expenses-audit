@@ -1,10 +1,10 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons' 
 
-import styles from './RegistrationFormError.module.css';
-import Modal from "../../common/modal/Modal";
+import styles from './FormError.module.css';
+import Modal from "../modal/Modal";
 
-const RegistrationFormError = (props) => {
+const FormError = (props) => {
     if (!props.show) {
         return null;
     }
@@ -27,4 +27,4 @@ const RegistrationFormError = (props) => {
     )
 }
 
-export default RegistrationFormError;
+export default FormError;

@@ -1,0 +1,1 @@
+export const authEndpoint = 'https://react-test-http-bae73-default-rtdb.firebaseio.com/users.json';
