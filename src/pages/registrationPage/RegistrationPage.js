@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
-import RegistrationForm from '../registrationForm/RegistrationForm';
-import RegistrationFormError from '../registrationFormError/RegistrationFormError';
+import RegistrationForm from '../../components/registration/registrationForm/RegistrationForm';
+import RegistrationFormError from '../../components/registration/registrationFormError/RegistrationFormError';
 import styles from './RegistrationPage.module.css';
-import Messages from '../../common/messages/Messages';
+import Messages from '../../components/common/messages/Messages';
 
 const RegistrationPage = () => {
     const [showFormError, setShowFormError] = useState(false);
