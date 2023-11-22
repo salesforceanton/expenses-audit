@@ -6,10 +6,20 @@
     margin: 0.5rem;
 }
 
-.open-modal-button {
+.header-buttons {
+    display: flex;
+}
+
+.open-modal-button, .log-out-button {
     width: 10rem;
     height: 2.5rem;
     cursor: pointer;
     background-color: var(--brand-color-blue);
     color: var(--brand-color-white);
+}
+
+.log-out-button {
+    margin-left: 0.5rem;
+    background-color: var(--brand-color-white);
+    color: var(--brand-color-blue);
 }

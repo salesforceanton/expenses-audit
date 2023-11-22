@@ -3,7 +3,7 @@ import { HTTP_METHOD, DEFAULT_HEADERS } from "./constants";
 
 const rootStateGenericActions = rootSlice.actions;
 
-const makeHttpRequest = ({ endpoint, method, headers, body }, successCallback) => async(dispatch) => {
+const makeHttpRequest = ({ endpoint, method, headers, body }, successCallback, errorCallback) => async(dispatch) => {
     dispatch(rootStateGenericActions.setError(null));
     dispatch(rootStateGenericActions.setIsLoading(true));
 
@@ -18,6 +18,7 @@ const makeHttpRequest = ({ endpoint, method, headers, body }, successCallback) =
         successCallback(responseData);
         } catch (error) {
             dispatch(rootStateGenericActions.setError(error));
+            errorCallback && errorCallback(error);
         } finally {
             dispatch(rootStateGenericActions.setIsLoading(false));
         }

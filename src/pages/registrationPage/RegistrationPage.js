@@ -1,11 +1,21 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 import RegistrationForm from '../../components/registration/registrationForm/RegistrationForm';
 import RegistrationFormError from '../../components/common/formError/FormError';
 import styles from './RegistrationPage.module.css';
 import Messages from '../../components/common/messages/Messages';
 
+import { 
+    authStateActions,
+    localStorageAuthState
+} from '../../store/auth/public-api';
+
 const RegistrationPage = () => {
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+
     const [showFormError, setShowFormError] = useState(false);
     const [showSuccessMessage, setShowSuccessMessage] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
@@ -19,15 +29,26 @@ const RegistrationPage = () => {
         setErrorMessage(message);
         setShowFormError(true);
     }
-    const createUserHandler = ({ username }) => {
-        setSuccessMessage(`User ${username} has been created!`);
+    const createUserSuccesssCallback = (userData) => () => {
+        localStorage.setItem(localStorageAuthState, true);
+        dispatch(authStateActions.logIn());
+
+        setSuccessMessage(`User ${userData.username} has been created!`);
         setShowSuccessMessage(true);
+
+        navigate('/main');
 
         window.setTimeout(() => {
             setShowSuccessMessage(false);
             setSuccessMessage('');
-            window.location = '/';
         }, 3000)
+    }
+
+    const createUserHandler = (userData) => {
+        dispatch(authStateActions.signUp({ 
+            userData, 
+            successCallback: createUserSuccesssCallback(userData)
+        }));
     }
 
     return (

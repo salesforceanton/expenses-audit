@@ -1,15 +1,23 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 import styles from './LoginPage.module.css';
-import Messages from '../../components/common/messages/Messages';
 import FormError from '../../components/common/formError/FormError';
 import LoginForm from '../../components/loginForm/LoginForm';
 
-const RegistrationPage = () => {
+import { 
+    authStateActions,
+    localStorageAuthState,
+    userDoesNotExistError
+} from '../../store/auth/public-api';
+
+const LoginPage = () => {
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+
     const [showFormError, setShowFormError] = useState(false);
-    const [showSuccessMessage, setShowSuccessMessage] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
-    const [successMessage, setSuccessMessage] = useState('');
 
     const closeErrorHandler = () => {
         setShowFormError(false);
@@ -19,25 +27,27 @@ const RegistrationPage = () => {
         setErrorMessage(message);
         setShowFormError(true);
     }
-    const loginHandler = ({ username }) => {
-        setSuccessMessage(`User ${username} has been created!`);
-        setShowSuccessMessage(true);
+    const handleCheckIsUserExist = (userCredentials) => (response) => {
+        const isUserExist = !!Object.values(response).find(
+            (e) => e.email === userCredentials.email && e.password === userCredentials.password);
 
-        window.setTimeout(() => {
-            setShowSuccessMessage(false);
-            setSuccessMessage('');
-            window.location = '/';
-        }, 3000)
+        if (isUserExist) {
+            localStorage.setItem(localStorageAuthState, true);
+            dispatch(authStateActions.logIn());
+            navigate('/main');
+        } else {
+            setErrorMessage(userDoesNotExistError);
+        }
+    };
+
+    const loginHandler = (userCredentials) => {
+        dispatch(authStateActions.processUserLogin(
+            handleCheckIsUserExist(userCredentials)
+        ));
     }
 
     return (
         <div className={styles['page-wrapper']}>
-            <Messages 
-                show={showSuccessMessage}
-                variant='success' 
-                message={successMessage} 
-                className={styles['success-toast']}
-            />
             <FormError 
                 onClose={closeErrorHandler} 
                 show={showFormError}
@@ -50,4 +60,4 @@ const RegistrationPage = () => {
     );
 }
 
-export default RegistrationPage;
+export default LoginPage;
