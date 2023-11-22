@@ -29,5 +29,5 @@ input, button {
     background-color: var(--brand-color-blue);
     color: var(--brand-color-white);
     height: 2.5rem !important;
-    margin-top: 2rem;
+    margin-top: 1rem;
 }

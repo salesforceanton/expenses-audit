@@ -25,9 +25,19 @@ input, button {
     font-family: inherit;
 }
 
+.buttons-block {
+    margin-bottom: 0 !important;
+}
+
+.login-link {
+    margin: 0.25rem 0.25rem 1.5rem 0.25rem;
+    text-align: center;
+    font-size: 0.85rem;
+}
+
 .submit-button {
     background-color: var(--brand-color-blue);
     color: var(--brand-color-white);
     height: 2.5rem !important;
-    margin-top: 2rem;
+    margin-top: 0.5rem;
 }

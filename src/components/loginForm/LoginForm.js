@@ -56,7 +56,7 @@ const LoginForm = (props) => {
                         onChange={changePasswordHandler}
                     />
                 </div>
-                <div className='buttons-block'>
+                <div className={styles['buttons-block']}>
                     <button className={styles['submit-button']} onClick={submitHandler}>Sign In with Email</button>
                 </div>
             </form>

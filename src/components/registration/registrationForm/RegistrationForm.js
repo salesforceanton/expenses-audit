@@ -67,11 +67,11 @@ const RegistrationForm = (props) => {
                         onChange={changePasswordHandler}
                     />
                 </div>
-                <div className='buttons-block'>
+                <div className={styles['buttons-block']}>
                     <button className={styles['submit-button']} onClick={submitHandler}>Sign Up with Email</button>
                 </div>
-                <div className='login-link'>
-                    Or You already have and<Link to='/sign-in'>Account</Link>
+                <div className={styles['login-link']}>
+                    Or You already have an <Link to='/sign-in'>Account</Link>
                 </div>
             </form>
         </Card>
